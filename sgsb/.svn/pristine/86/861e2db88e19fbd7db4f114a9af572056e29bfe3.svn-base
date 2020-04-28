@@ -1,0 +1,19 @@
+package com.zjhc.sgsb.common;
+
+public class Constant {
+
+    public static final String SUPER_USER_DEPT_NAME = "超级管理员";
+
+    public static final String SUPER_USER_DEPT_CODE = "administrator";
+
+    public static final String EXCEL_FILE_TYPE = "xls";
+
+//    public static final String DOWNLOAD_EXCEl_URL = "http://172.24.4.159:6080/clouddiskM-webapp/api/clouddisk/downloadFile?type=F&infoid=";
+
+    public interface PARENT{
+        String CHILD = "value";
+    }
+
+
+
+}

@@ -1,0 +1,15 @@
+package com.zjhc.sgsb.common;
+
+public class Constant {
+
+    public static final String SUPER_USER_DEPT_NAME = "超级管理员";
+
+    public static final String SUPER_USER_DEPT_CODE = "administrator";
+
+    public interface PARENT{
+        String CHILD = "value";
+    }
+
+
+
+}

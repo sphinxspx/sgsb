@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    
+</head>
+<body>
+<div class="layuimini-container">
+        <table class="layui-hide" id="currentTableId" ></table>
+        <script type="text/html" id="checkboxTpl">
+            <!-- 这里的 checked 的状态只是演示 -->
+            <a href="{{d.fileUrl}}" target="_blank" style="color: blue;text-decoration:underline" download>{{d.fileName}}</a>
+          </script>
+</div>
+<script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script>
+      var list = search()
+        // 获取全部参数 obj
+        function search() {
+            let Url = window.location.search;
+            var str = Url;
+            str = str.substring(1, str.length);
+            var arr = str.split("&");
+            var obj = new Object();
+            for (var i = 0; i < arr.length; i++) {
+                var tmp_arr = arr[i].split("=");
+                obj[decodeURIComponent(tmp_arr[0])] = decodeURIComponent(tmp_arr[1]);
+            }
+            return obj;
+        }
+    layui.use(['form', 'table','upload'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            table = layui.table;
+        table.render({
+            elem: '#currentTableId',
+            url: 'http://10.80.7.86:8181/sgsb/upload-record/list_upload_record_by_catalog_code',
+            request:{
+                pageName: 'pageIndex', //页码的参数名称，默认：page
+                limitName: 'pageSize', //每页数据量的参数名，默认：limit
+            },
+            where:{
+                token:sessionStorage.getItem("token"),
+                catalogCode:list.catalogCode
+
+            },
+            parseData:function(res){
+                return {
+                    "code": res.success?0:1, //解析接口状态
+                    "msg": res.msg, //解析提示文本
+                    "count": res.totalCount, //解析数据长度 总数
+                    "data": res.data //解析数据列表
+                };
+            },
+            cols: [[
+                {type: "checkbox", width: 50, fixed: "left"},
+                {field: 'id', width: 80, title: 'ID', sort: true, align: "center"},
+                {field: 'fileName', width: 160, title: '文件名称', align: "center", templet: '#checkboxTpl'},
+                // {field: 'fileUrl', width: 180, title: '文件路径', align: "center",templet: '#checkboxTpl', },
+                {field: 'createUser', title: '上传人', width: 160, align: "center"},
+                {field: 'createTimeStr', title: '上传时间', width: 180, align: "center"},
+                {field: 'dataCount', title: '数据量', width: 160, align: "center"},
+                {field: 'uploadStatusStr', title: '入库文件', width: 160, align: "center"},
+                {field: 'uploadType', title: '更新方式', width: 160, align: "center"},
+            ]],
+            limits: [10, 15, 20, 25, 50, 100],
+            limit: 15,
+            page: true
+        });
+
+    });
+</script>
+<script>
+</script>
+</body>
+</html>

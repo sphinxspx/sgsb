@@ -1,0 +1,65 @@
+package com.zjhc.sgsb.service.impl;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.google.common.collect.Lists;
+import com.zjhc.sgsb.common.InterfaceResult;
+import com.zjhc.sgsb.entity.CatalogTemplate;
+import com.zjhc.sgsb.entity.UploadRecord;
+import com.zjhc.sgsb.entity.UserInfo;
+import com.zjhc.sgsb.entity.vo.UploadRecordVo;
+import com.zjhc.sgsb.mapper.UploadRecordMapper;
+import com.zjhc.sgsb.service.IUploadRecordService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+/**
+ * <p>
+ * 上传记录 服务实现类
+ * </p>
+ *
+ * @author wusj
+ * @since 2020-04-22
+ */
+@Service
+@Transactional
+public class UploadRecordServiceImpl extends ServiceImpl<UploadRecordMapper, UploadRecord> implements IUploadRecordService {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private IUploadRecordService uploadRecordService;
+    @Autowired
+    private UploadRecordMapper uploadRecordMapper;
+
+    public InterfaceResult<List<UploadRecordVo>> listUploadRecordByCatalogCode(String catalogCode, Page<UploadRecord> page){
+        QueryWrapper<UploadRecord> wrapper = new QueryWrapper<>();
+        wrapper.eq("catalog_code",catalogCode);
+        wrapper.eq("is_delete",1);
+        wrapper.orderByDesc("orderby","create_time");
+        IPage<UploadRecord> iPage = uploadRecordMapper.selectPage(page, wrapper);
+        List<UploadRecord> uploadRecords = iPage.getRecords();
+        List<UploadRecordVo> voList = Lists.newArrayList();
+        if (uploadRecords != null && uploadRecords.size()>0){
+            uploadRecords.forEach( record -> {
+                UploadRecordVo vo = new UploadRecordVo();
+                BeanUtils.copyProperties(record,vo);
+                vo.setUploadStatusStr( record.getUploadStatus() == 1 ? "√":"×");
+                vo.setCreateTimeStr(record.getCreateTime().toString().substring(0,19).replaceAll("T"," "));
+                voList.add(vo);
+            });
+            return InterfaceResult.getSuccess(iPage.getTotal(),iPage.getPages(),voList);
+        }
+        return InterfaceResult.getSuccess("结果为空!",Lists.newArrayList());
+    }
+
+}

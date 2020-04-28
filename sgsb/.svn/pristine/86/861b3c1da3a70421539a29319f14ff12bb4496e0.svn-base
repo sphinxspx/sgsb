@@ -1,0 +1,95 @@
+package com.zjhc.sgsb.service.impl;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.google.common.collect.Lists;
+import com.zjhc.sgsb.common.Constant;
+import com.zjhc.sgsb.common.InterfaceResult;
+import com.zjhc.sgsb.entity.CatalogTemplate;
+import com.zjhc.sgsb.entity.ResourceCatalog;
+import com.zjhc.sgsb.entity.UserInfo;
+import com.zjhc.sgsb.mapper.ResourceCatalogMapper;
+import com.zjhc.sgsb.service.ICatalogTemplateService;
+import com.zjhc.sgsb.service.IResourceCatalogService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author wusj
+ * @since 2020-04-19
+ */
+@Service
+public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMapper, ResourceCatalog> implements IResourceCatalogService {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private ResourceCatalogMapper resourceCatalogMapper;
+    @Autowired
+    private ResourceCatalogServiceImpl resourceCatalogService;
+    @Autowired
+    private ICatalogTemplateService catalogTemplateService;
+
+    public InterfaceResult<List<ResourceCatalog>> listResourceCatalog(UserInfo userInfo,Page<ResourceCatalog> page){
+        QueryWrapper<ResourceCatalog> wrapper = new QueryWrapper<>();
+        wrapper.eq("create_dept",userInfo.getDeptCode());
+        wrapper.eq("is_delete",1);
+        wrapper.orderByDesc("orderby","create_time");
+        List<ResourceCatalog> resourceCatalogListist = resourceCatalogService.list(wrapper);
+        IPage<ResourceCatalog> iPage = resourceCatalogMapper.selectPage(page,wrapper);
+        iPage.setTotal(resourceCatalogListist.size());
+        if (iPage.getTotal() > 0){
+            return InterfaceResult.getSuccess(iPage.getTotal(), iPage.getPages(),iPage.getRecords());
+        }
+        return InterfaceResult.getError("结果为空！"+Lists.newArrayList());
+    }
+
+    public InterfaceResult<ResourceCatalog> addResourceCatalog(UserInfo userInfo,ResourceCatalog catalog){
+        QueryWrapper<ResourceCatalog> wrapper = new QueryWrapper<>();
+        wrapper.eq("catalog_name",catalog.getCatalogName());
+        wrapper.eq("is_delete",1);
+        Integer hasExist = resourceCatalogMapper.selectCount(wrapper);
+        if (hasExist > 0){
+            return InterfaceResult.getError("目录名称已存在！");
+        }
+        catalog.setCatalogCode(UUID.randomUUID().toString().replaceAll("-",""));
+        catalog.setCreateDept(userInfo.getDeptCode());
+        catalog.setCreateUser(userInfo.getUsername());
+        catalog.setCreateTime(LocalDateTime.now());
+        int insertStatus = resourceCatalogMapper.insert(catalog);
+        if(insertStatus > 0){
+            return InterfaceResult.getSuccess("创建成功",catalog);
+        }
+
+        return InterfaceResult.getError("创建失败");
+    }
+
+    public InterfaceResult<ResourceCatalog> updateResourceCatalog(UserInfo userInfo,ResourceCatalog catalog){
+        QueryWrapper<ResourceCatalog> wrapper = new QueryWrapper<>();
+        wrapper.eq("catalog_code",catalog.getCatalogCode());
+        wrapper.eq("is_delete",1);
+        ResourceCatalog resourceCatalog = resourceCatalogMapper.selectOne(wrapper);
+        if ( Constant.SUPER_USER_DEPT_CODE.equals(userInfo.getDeptCode()) || resourceCatalog.getCreateDept().equals(userInfo.getDeptCode())){
+            catalog.setUpdateDept(userInfo.getDeptCode());
+            catalog.setUpdateUser(userInfo.getUsername());
+            catalog.setUpdateTime(LocalDateTime.now());
+            int update = resourceCatalogMapper.update(catalog, wrapper);
+            return InterfaceResult.hasExist(update,"创建成功","创建失败",catalog);
+        }
+        return InterfaceResult.getError("没有修改权限！");
+    }
+
+
+}

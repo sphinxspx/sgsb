@@ -1,0 +1,24 @@
+ {
+	"menuInfo": {
+    "bussiness": {
+      "title": "业务管理",
+      "icon": "fa fa-address-book",
+      "child": [
+        {
+          "title": "业务管理",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "手工上报",
+              "href": "resources/page/welcome-1.html",
+              "icon": "fa fa-edit",
+              "target": "_self"
+            }
+          ]
+        }      
+      ]
+    }
+  }
+}

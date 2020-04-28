@@ -1,0 +1,70 @@
+package com.zjhc.sgsb.entity.pojo;
+
+public class MuColumnPOJO {
+
+	private String columnName;
+	
+	private String columnType;
+	
+	private Integer length;
+	
+	private String describe;
+	
+	private Integer precesion;
+	
+	private String isKey;
+
+	public String getColumnName() {
+		return columnName;
+	}
+
+	public void setColumnName(String columnName) {
+		this.columnName = columnName;
+	}
+
+	public String getColumnType() {
+		return columnType;
+	}
+
+	public void setColumnType(String columnType) {
+		this.columnType = columnType;
+	}
+
+
+
+	public Integer getLength() {
+		return length;
+	}
+
+	public void setLength(Integer length) {
+		this.length = length;
+	}
+
+	public String getDescribe() {
+		return describe;
+	}
+
+	public void setDescribe(String describe) {
+		this.describe = describe;
+	}
+
+
+
+	public Integer getPrecesion() {
+		return precesion;
+	}
+
+	public void setPrecesion(Integer precesion) {
+		this.precesion = precesion;
+	}
+
+	public String getIsKey() {
+		return isKey;
+	}
+
+	public void setIsKey(String isKey) {
+		this.isKey = isKey;
+	}
+	
+	
+}

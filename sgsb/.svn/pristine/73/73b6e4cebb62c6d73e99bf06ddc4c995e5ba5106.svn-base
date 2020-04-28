@@ -1,0 +1,16 @@
+package com.zjhc.sgsb.mapper;
+
+import com.zjhc.sgsb.entity.CatalogData;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * <p>
+ * 信息目录 excle解析数据保存 Mapper 接口
+ * </p>
+ *
+ * @author wusj
+ * @since 2020-04-22
+ */
+public interface CatalogDataMapper extends BaseMapper<CatalogData> {
+
+}

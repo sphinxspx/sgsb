@@ -1,0 +1,27 @@
+package com.zjhc.sgsb.service;
+
+import com.zjhc.sgsb.common.InterfaceResult;
+import com.zjhc.sgsb.entity.Dept;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
+
+/**
+ * <p>
+ *  服务类
+ * </p>
+ *
+ * @author wusj
+ * @since 2020-04-19
+ */
+public interface IDeptService extends IService<Dept> {
+
+    InterfaceResult<Dept> addDept(Dept dept) ;
+
+    InterfaceResult<String> deleteDept(Dept dept);
+
+    InterfaceResult<List<Dept>> listDept(String searchInfo);
+
+
+
+}

@@ -1,0 +1,92 @@
+package com.zjhc.sgsb.service.impl;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zjhc.sgsb.common.Constant;
+import com.zjhc.sgsb.common.InterfaceResult;
+import com.zjhc.sgsb.entity.Dept;
+import com.zjhc.sgsb.entity.UserInfo;
+import com.zjhc.sgsb.mapper.DeptMapper;
+import com.zjhc.sgsb.service.IDeptService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zjhc.sgsb.service.IUserInfoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author wusj
+ * @since 2020-04-19
+ */
+@Service
+@Transactional
+public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements IDeptService {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private DeptMapper deptMapper;
+    @Autowired
+    private IUserInfoService userInfoService;
+
+    public InterfaceResult<Dept> addDept(Dept dept) {
+        QueryWrapper<Dept> wrapper = new QueryWrapper<>();
+        wrapper.eq("dept_name",dept.getDeptName());
+        wrapper.eq("is_delete",1);
+        Integer hasExist = deptMapper.selectCount(wrapper);
+        if (hasExist > 0){
+            return InterfaceResult.getError("部门名称已存在！");
+        }
+        dept.setDeptCode(UUID.randomUUID().toString());
+        dept.setCreateTime(LocalDateTime.now());
+        int insertStatus = deptMapper.insert(dept);
+        return InterfaceResult.hasExist(insertStatus,"创建成功！","创建失败",dept);
+    }
+
+    public InterfaceResult<String> deleteDept(Dept dept) {
+        if (dept == null || dept.getDeptCode() == null){
+            return InterfaceResult.getError("参数为空！");
+        }
+        QueryWrapper<Dept> wrapper = new QueryWrapper<>();
+        wrapper.eq("dept_code",dept.getDeptCode());
+        wrapper.eq("is_delete",1);
+        dept.setIsDelete(0);
+        dept.setUpdateTime(LocalDateTime.now());
+        int update = deptMapper.update(dept, wrapper);
+        if (update > 0){
+            //删除部门同时删除用户
+            QueryWrapper<UserInfo> userWrapper = new QueryWrapper<>();
+            userWrapper.eq("dept_code",dept.getDeptCode());
+            userWrapper.eq("is_delete",1);
+            UserInfo info = new UserInfo();
+            info.setIsDelete(0);
+            info.setUpdateTime(LocalDateTime.now());
+            userInfoService.update(info,userWrapper);
+            return InterfaceResult.getError("删除成功！");
+        }
+        return InterfaceResult.getError("删除失败！");
+    }
+
+    public InterfaceResult<List<Dept>> listDept(String searchInfo){
+        QueryWrapper<Dept> wrapper = new QueryWrapper<>();
+        if (!StringUtils.isEmpty(searchInfo)){
+            wrapper.like("dept_name",searchInfo);
+        }
+        wrapper.notIn("dept_code", Constant.SUPER_USER_DEPT_CODE);
+        wrapper.eq("is_delete",1);
+        wrapper.orderByDesc("orderby","create_time");
+        List<Dept> deptList = deptMapper.selectList(wrapper);
+        return InterfaceResult.getSuccess("success",deptList);
+    }
+
+}

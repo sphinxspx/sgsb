@@ -1,0 +1,44 @@
+package com.zjhc.sgsb.service.impl;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zjhc.sgsb.common.InterfaceResult;
+import com.zjhc.sgsb.entity.UserInfo;
+import com.zjhc.sgsb.mapper.UserInfoMapper;
+import com.zjhc.sgsb.service.IUserInfoService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author wusj
+ * @since 2020-04-19
+ */
+@Service
+@Transactional
+public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements IUserInfoService {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private UserInfoMapper userInfoMapper;
+
+    public InterfaceResult login(UserInfo userInfo){
+        if (userInfo == null || userInfo.getUsername() == null || userInfo.getPassword() == null){
+            return InterfaceResult.getError("登录信息不全");
+        }
+        QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("username",userInfo.getUsername());
+        wrapper.eq("password",userInfo.getPassword());
+        wrapper.eq("dept_code",userInfo.getDeptCode());
+        Integer hasUserInfo = userInfoMapper.selectCount(wrapper);
+        return InterfaceResult.hasExist(hasUserInfo,"登录失败，请检查登录信息！","登陆成功！",null);
+    }
+
+}

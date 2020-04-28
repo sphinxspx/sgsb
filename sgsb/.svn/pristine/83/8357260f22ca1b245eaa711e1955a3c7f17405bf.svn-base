@@ -1,0 +1,13 @@
+package com.zjhc.sgsb.common;
+
+public class Constant {
+
+    public static final String KEY = "value";
+
+    public interface  PARENT{
+        String CHILD = "value";
+    }
+
+
+
+}

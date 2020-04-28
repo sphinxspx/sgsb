@@ -1,0 +1,36 @@
+package com.zjhc.sgsb.temp;
+
+import java.util.LinkedList;
+
+public class OracleSqlTemp {
+	
+	public static String returnSequenceSql(String tableName){
+		StringBuilder str=new StringBuilder();
+		str.append("CREATE SEQUENCE seq_").append(tableName)
+			.append(" increment by 1 start with 1 nomaxvalue minvalue 1 NOCYCLE");
+		
+		return str.toString();
+	}
+	
+	public static String returnTriggerSql(String tableName){
+		StringBuilder str=new StringBuilder();
+		str.append("CREATE OR REPLACE TRIGGER trig_").append(tableName)
+			.append(" BEFORE INSERT ON ").append(tableName).append(" FOR EACH ROW")
+			.append(" BEGIN select seq_").append(tableName).append(".nextval into :new.excel_id from dual;")
+			.append(" END");
+		
+		return str.toString();
+	}
+	
+	public static String returnCreateSql(String tableName,LinkedList<LinkedList<Object>> colEname){
+		StringBuilder str=new StringBuilder();
+		str.append("CREATE TABLE ").append(tableName).append("( excel_id NUMBER,");
+		for(int i=0;i<colEname.size();i++){
+			str.append(colEname.get(i)).append(" NVARCHAR2(").append(255).append("),");
+		}
+		str.append("insert_date TIMESTAMP,PRIMARY KEY (id) )");
+
+		return str.toString();
+	}
+	
+}

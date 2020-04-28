@@ -1,0 +1,36 @@
+ {
+	"menuInfo": {
+    "bussiness": {
+      "title": "业务管理",
+      "icon": "fa fa-address-book",
+      "child": [
+        {
+          "title": "业务管理",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "手工上报",
+              "href": "resources/page/form.html",
+              "icon": "fa fa-edit",
+              "target": "_self"
+            },
+            {
+              "title": "上报记录",
+              "href": "resources/page/table.html",
+              "icon": "fa fa-file-text",
+              "target": "_self"
+            },
+            {
+              "title": "上报日志",
+              "href": "resources/page/table.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        }      
+      ]
+    }
+  }
+}

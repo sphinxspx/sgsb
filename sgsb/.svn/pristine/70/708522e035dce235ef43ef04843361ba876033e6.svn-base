@@ -1,0 +1,84 @@
+package com.zjhc.sgsb.service.impl;
+
+import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Lists;
+import com.zjhc.sgsb.common.Constant;
+import com.zjhc.sgsb.common.InterfaceResult;
+import com.zjhc.sgsb.entity.CatalogData;
+import com.zjhc.sgsb.entity.CatalogTemplate;
+import com.zjhc.sgsb.entity.UploadRecord;
+import com.zjhc.sgsb.entity.UserInfo;
+import com.zjhc.sgsb.mapper.CatalogDataMapper;
+import com.zjhc.sgsb.service.ICatalogDataService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zjhc.sgsb.service.IUploadRecordService;
+import com.zjhc.sgsb.util.ExcelUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * <p>
+ * 信息目录 excle解析数据保存 服务实现类
+ * </p>
+ *
+ * @author wusj
+ * @since 2020-04-22
+ */
+@Service
+@Transactional
+public class CatalogDataServiceImpl extends ServiceImpl<CatalogDataMapper, CatalogData> implements ICatalogDataService {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private ICatalogDataService catalogDataService;
+    @Autowired
+    private IUploadRecordService uploadRecordService;
+    @Autowired
+    private CatalogDataMapper catalogDataMapper;
+
+    public InterfaceResult<String> addCatalogData(UserInfo userInfo,String catalogCode, MultipartFile excel) throws IOException {
+        LinkedList<LinkedList<Object>> dataList = ExcelUtil.getExcelToList(excel.getInputStream(), Constant.EXCEL_FILE_TYPE);
+        if (dataList.size() > 1){
+            List<CatalogData> catalogDataList = Lists.newArrayList();
+
+            for (int index = 1; index<dataList.size(); index++){
+                CatalogData catalogData = new CatalogData();
+                LinkedList<Object> ele = dataList.get(index);
+                String dataJson = JSON.toJSONString(ele);
+                catalogData.setCatalogCode(catalogCode);
+                catalogData.setDataJson(dataJson);//================
+                catalogData.setCreateUser(userInfo.getUsername());
+                catalogData.setCreateDept(userInfo.getDeptCode());
+                catalogData.setCreateTime(LocalDateTime.now());
+                catalogDataList.add(catalogData);
+            }
+            UploadRecord uploadRecord = new UploadRecord();
+            if (catalogDataService.saveBatch(catalogDataList)){//数据保存成功
+                uploadRecord.setUploadStatus(1);
+            }else {
+                uploadRecord.setUploadStatus(0);
+            }
+            uploadRecord.setCatalogCode(catalogCode);
+            uploadRecord.setFileName(excel.getOriginalFilename());
+            uploadRecord.setDataCount(dataList.size()-1);
+            uploadRecord.setUoloadType("全量");
+            uploadRecord.setCreateUser(userInfo.getUsername());
+            uploadRecord.setCreateDept(userInfo.getDeptCode());
+            uploadRecord.setCreateTime(LocalDateTime.now());
+            uploadRecordService.save(uploadRecord);
+            return InterfaceResult.getError("操作成功!");
+        }
+        return InterfaceResult.getError("操作失败!");
+    }
+
+}

@@ -1,0 +1,20 @@
+package com.zjhc.sgsb.service.impl;
+
+import com.zjhc.sgsb.entity.Dept;
+import com.zjhc.sgsb.mapper.DeptMapper;
+import com.zjhc.sgsb.service.IDeptService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author wusj
+ * @since 2020-04-19
+ */
+@Service
+public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements IDeptService {
+
+}

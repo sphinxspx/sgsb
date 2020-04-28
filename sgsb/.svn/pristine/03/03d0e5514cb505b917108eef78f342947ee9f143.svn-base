@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- <div class="layui-form layuimini-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">目录名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="catalogName" lay-verify="required" lay-reqtext="目录名称不能为空" placeholder="请输入目录名称" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">目录信息</label>
+        <div class="layui-input-block">
+            <input type="text" name="catalogIntro" lay-verify="required" lay-reqtext="目录信息不能为空" placeholder="请输入目录信息" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">是否格式化文件</label>
+        <div class="layui-input-block">
+            <input type="radio" name="isFormat" value="1" title="是" checked>
+            <input type="radio" name="isFormat" value="0" title="否" >
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="saveBtn">确认保存</button>
+        </div>
+    </div>
+</div> -->
+    <div id="app">
+        <el-form :model="obj" ref="obj" class="demo-dynamic">
+            <el-row :gutter="20" v-for="(item,index) in obj.jsonArray" :key="item.key">
+                <el-col :span="10">
+                    <el-form-item :prop="'jsonArray.' + index + '.colName'" :rules="[{ required: true, message: '请输入字段标识', trigger: 'blur' }, 
+                    {pattern: /^[a-zA-Z]+$/,message: '字段标识格式错误,只能输入字母',trigger: 'blur'}]">
+                        <el-input v-model="item.colName" placeholder="请输入字段标识"></el-input>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="10">
+                    <el-form-item :prop="'jsonArray.' + index + '.colDesc'" 
+                    :rules="{ required: true, message: '请输入字段名称', trigger: 'blur' }">
+                        <el-input v-model="item.colDesc" placeholder="请输入字段名称"></el-input>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="4">
+                    <el-button @click.prevent="removeDomain(item)">删除</el-button>
+                </el-col>
+            </el-row>
+            <el-row>
+                <el-form-item>
+                    <el-button type="primary" @click="submitForm('obj')">提交</el-button>
+                    <el-button @click="addDomain">新增</el-button>
+                    <el-button @click="resetForm('obj')">重置</el-button>
+                </el-form-item>
+            </el-row>
+        </el-form>
+    </div>
+    <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script>
+        
+        var list = search()
+        // 获取全部参数 obj
+        function search() {
+            let Url = window.location.search;
+            var str = Url;
+            str = str.substring(1, str.length);
+            var arr = str.split("&");
+            var obj = new Object();
+            for (var i = 0; i < arr.length; i++) {
+                var tmp_arr = arr[i].split("=");
+                obj[decodeURIComponent(tmp_arr[0])] = decodeURIComponent(tmp_arr[1]);
+            }
+            return obj;
+        }
+        var $,layer;
+        layui.use(['form'], function () {
+            var form = layui.form;
+                layer = layui.layer;
+                $ = layui.$;
+            return false
+            //监听提交
+        });
+        new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    obj:{
+                        jsonArray: [
+                            {
+                                colName: "",
+                                colDesc: ""
+                            }
+                        ]
+                    },
+                    $:null
+                }
+            },
+            mounted() {
+                
+            },
+            methods: {
+                submitForm(formName) {
+                    this.$refs[formName].validate((valid) => {
+                        var s  =Object.assign({},{token:sessionStorage.getItem('token'),colList:this.obj.jsonArray})
+                        if (valid) {
+                            $.ajax({
+                                type: "post",
+                                url: "http://192.168.1.104:8181/sgsb/catalog-template/add_catalog_template_page?token="+sessionStorage.getItem('token'),
+                                data:JSON.stringify(Object.assign({},{catalogCode:list.catalogCode,colList:this.obj.jsonArray})),
+                                dataType: "json",
+                                contentType:"application/json",
+                                success: function (res) {
+                                    layer.msg(res.msg);
+                                    if(res.success){
+                                        setTimeout(() => {
+                                            var iframeIndex = parent.layer.getFrameIndex(window.name);
+                                            console.log(iframeIndex)
+                                            parent.layer.close(iframeIndex);
+                                        }, 2000);
+                                    }
+                                }
+                            });
+                        } else {
+                            console.log('error submit!!');
+                            return false;
+                        }
+                    });
+                },
+                resetForm(formName) {
+                    this.$refs[formName].resetFields();
+                },
+                removeDomain(item) {
+                    var index = this.obj.jsonArray.indexOf(item)
+                    if (index !== -1) {
+                        this.obj.jsonArray.splice(index, 1)
+                    }
+                },
+                addDomain() {
+                    this.obj.jsonArray.push({
+                        colName: '',
+                        colDesc: ""
+                    });
+                }
+            }
+        })
+    </script>
+    <script>
+        
+    </script>
+</body>
+
+</html>

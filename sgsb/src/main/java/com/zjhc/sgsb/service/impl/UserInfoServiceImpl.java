@@ -1,0 +1,105 @@
+package com.zjhc.sgsb.service.impl;
+
+import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zjhc.sgsb.common.InterfaceResult;
+import com.zjhc.sgsb.entity.UserInfo;
+import com.zjhc.sgsb.mapper.UserInfoMapper;
+import com.zjhc.sgsb.service.IUserInfoService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zjhc.sgsb.util.MD5Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
+import org.springframework.util.StringUtils;
+
+import java.time.LocalDateTime;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author wusj
+ * @since 2020-04-19
+ */
+@Service
+@Transactional
+public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements IUserInfoService {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private UserInfoMapper userInfoMapper;
+
+    public InterfaceResult<String> login(UserInfo userInfo) {
+        if (userInfo == null || userInfo.getUsername() == null || userInfo.getPassword() == null) {
+            return InterfaceResult.getError("登录信息不全");
+        }
+        QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("username", userInfo.getUsername());
+        wrapper.eq("password", MD5Util.calc(userInfo.getPassword()));
+//        wrapper.eq("dept_code",userInfo.getDeptCode());
+        wrapper.eq("is_delete", 1);
+        UserInfo loginUser = userInfoMapper.selectOne(wrapper);
+        if (loginUser == null) {
+            return InterfaceResult.getError("用户信息不存在，登陆失败！");
+        }
+        String jsonString = JSON.toJSONString(loginUser);
+        String token = Base64Utils.encodeToString(jsonString.getBytes());
+        return InterfaceResult.getSuccess("登陆成功", token);
+    }
+
+    public InterfaceResult<String> deleteUser(UserInfo userInfo) {
+        if (userInfo == null || userInfo.getId() == null){
+            return InterfaceResult.getError("参数为空！");
+        }
+        userInfo.setIsDelete(0);
+        userInfo.setUpdateTime(LocalDateTime.now());
+        int update = userInfoMapper.updateById(userInfo);
+        return InterfaceResult.hasExist(update, "删除成功", "删除失败", null);
+    }
+
+    public InterfaceResult<String> forgetPassword(UserInfo userInfo) {
+        QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("username", userInfo.getUsername());
+        wrapper.eq("dept_name", userInfo.getDeptName());
+        wrapper.eq("is_delete", 1);
+        Integer hasExist = userInfoMapper.selectCount(wrapper);
+        if (hasExist == 0) {
+            return InterfaceResult.getError("用户不存在/信息校验失败！");
+        }
+        userInfo.setPassword(MD5Util.calc(userInfo.getPassword()));
+        userInfo.setUpdateTime(LocalDateTime.now());
+        int insertStatus = userInfoMapper.update(userInfo, wrapper);
+        return InterfaceResult.hasExist(insertStatus, "修改成功", "修改失败", null);
+    }
+
+    public InterfaceResult<String> resetPassword(UserInfo userInfo,String newPassword){
+        QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("username",userInfo.getUsername());
+        wrapper.eq("password",MD5Util.calc(userInfo.getPassword()));
+        wrapper.eq("is_delete",1);
+        UserInfo baseInfo = userInfoMapper.selectOne(wrapper);
+        if (baseInfo == null){
+            return InterfaceResult.getError("旧密码错误!");
+        }
+        baseInfo.setPassword(MD5Util.calc(newPassword));
+        baseInfo.setUpdateTime(LocalDateTime.now());
+        int success = userInfoMapper.updateById(baseInfo);
+        return InterfaceResult.hasExist(success,"修改成功","修改失败",null);
+    }
+
+    public InterfaceResult<UserInfo> authentication(String token) {
+        if (StringUtils.isEmpty(token)) {
+            return InterfaceResult.getError("请先登录！");
+        }
+        String jsonStr = new String(Base64Utils.decode(token.replaceAll(" ","+").getBytes()));
+        UserInfo userInfo = JSON.parseObject(jsonStr, UserInfo.class);
+        return InterfaceResult.getSuccess("信息校验成功", userInfo);
+    }
+
+}

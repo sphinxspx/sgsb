@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/branch" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/branch-shangqing" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/branch_frontend" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/branch_openManagerForProvince" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/datasharemap-public" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/frontend" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/maven" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/prototype" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/software" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/sourcecode" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/tag" />
+                  <option value="http://115.238.28.41:15699/svn/bigdata/code/temp" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="http://115.238.28.41:15699/svn/bigdata/code/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

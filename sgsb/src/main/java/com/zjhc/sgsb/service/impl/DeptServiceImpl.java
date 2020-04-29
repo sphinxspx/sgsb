@@ -92,6 +92,7 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
         if (!StringUtils.isEmpty(searchInfo)){
             wrapper.like("dept_name",searchInfo);
         }
+        wrapper.select("dept_code","dept_name");
         wrapper.notIn("dept_code", Constant.SUPER_USER_DEPT_CODE);
         wrapper.eq("is_delete",1);
         wrapper.orderByDesc("orderby","create_time");

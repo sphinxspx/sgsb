@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0d5c73ff-3b08-4a45-90bb-951e01e8f8ea" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles" afterDir="true" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_easyexcel_2_1_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_62.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_belerweb_pinyin4j_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_1_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_examples_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_excelant_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_scratchpad_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ehcache_ehcache_3_6_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_4_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sevenstar_workflow_client_1_0_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$" beforeDir="true" afterPath="$PROJECT_DIR$" afterDir="true" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_6_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_6_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_6_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_6_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_6_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_6_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_6_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_0_0_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_0_0_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/server.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sgsb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sgsb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/controller/ResourceCatalogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/controller/ResourceCatalogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/IResourceCatalogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/IResourceCatalogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/DeptServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/DeptServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/ResourceCatalogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/ResourceCatalogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/addDept.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/addDept.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/addTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/addTemplate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/forgetPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/forgetPassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/histy.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/histy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/welcome-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/welcome-1.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="sgsb" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/maven/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1amdI0tbaDpMN8JjZvzEPcC8yT6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sgsb-page" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\svnFile\sgsb\src\main\resources\static\resources\page\table" />
+      <recent name="F:\svnFile\sgsb\src\main\resources\static\resources" />
+      <recent name="F:\svnFile\sgsb\src\main\resources\static\download" />
+      <recent name="F:\svnFile\sgsb\src\main\resources\static" />
+      <recent name="F:\svnFile\sgsb\src\main\java\com\zjhc\sgsb\temp" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zjhc.sgsb.util" />
+      <recent name="com.zjhc.sgsb.entity.pojo" />
+      <recent name="com.zjhc.sgsb.exception" />
+      <recent name="com.zjhc.sgsb.common" />
+      <recent name="com.zjhc.sgsb.config" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\svnFile\sgsb\src\main\resources\static\resources\page" />
+      <recent name="F:\svnFile\sgsb\src\main\resources\static\download" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SgsbApplication">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration name="CodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zjhc.sgsb.config.CodeGenerator" />
+      <module name="sgsb" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zjhc.sgsb.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UploadRecordServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zjhc.sgsb.service.impl.UploadRecordServiceImpl" />
+      <module name="sgsb" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zjhc.sgsb.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserInfoServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zjhc.sgsb.service.impl.UserInfoServiceImpl" />
+      <module name="sgsb" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zjhc.sgsb.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="grailsApplicationRoot" value="" />
+      <setting name="launchBrowser" value="false" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SgsbApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sgsb" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zjhc.sgsb.SgsbApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.CodeGenerator" />
+      <item itemvalue="Application.UserInfoServiceImpl" />
+      <item itemvalue="Application.UploadRecordServiceImpl" />
+      <item itemvalue="Spring Boot.SgsbApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.UploadRecordServiceImpl" />
+        <item itemvalue="Application.UserInfoServiceImpl" />
+        <item itemvalue="Application.CodeGenerator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="F:\svnFile\sgsb" />
+          <option name="myCopyRoot" value="F:\svnFile\sgsb" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="F:\svnFile\sgsb" />
+          <option name="myCopyRoot" value="F:\svnFile\sgsb" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d5c73ff-3b08-4a45-90bb-951e01e8f8ea" name="Default" comment="" />
+      <created>1587273710461</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587273710461</updated>
+      <workItem from="1587273713391" duration="8406000" />
+      <workItem from="1587344642356" duration="481000" />
+      <workItem from="1587345761458" duration="1685000" />
+      <workItem from="1587347475448" duration="18884000" />
+      <workItem from="1587432102550" duration="50000" />
+      <workItem from="1587432229976" duration="349000" />
+      <workItem from="1587433422841" duration="622000" />
+      <workItem from="1587434083617" duration="11284000" />
+      <workItem from="1587517060118" duration="10000" />
+      <workItem from="1587517111674" duration="21162000" />
+      <workItem from="1587630948976" duration="724000" />
+      <workItem from="1587692509874" duration="17036000" />
+      <workItem from="1587862324227" duration="16349000" />
+      <workItem from="1587947885070" duration="21488000" />
+      <workItem from="1588035088215" duration="22212000" />
+      <workItem from="1588121449519" duration="3534000" />
+    </task>
+    <task id="LOCAL-00001" summary="用户 部门 资源目录 增删查">
+      <created>1587374025045</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587374025045</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add  fastJson">
+      <created>1587374082478</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587374082478</updated>
+    </task>
+    <task id="LOCAL-00003" summary="模板字段添加 模板生成 excel解析 上传记录查询">
+      <created>1587540760375</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587540760375</updated>
+    </task>
+    <task id="LOCAL-00004" summary="模板校验 上传云盘">
+      <created>1587698747669</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587698747670</updated>
+    </task>
+    <task id="LOCAL-00005" summary="模板校验 上传云盘">
+      <created>1587698758194</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587698758194</updated>
+    </task>
+    <task id="LOCAL-00006" summary="base64解码bug,数据库连接池">
+      <created>1587715747467</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587715747467</updated>
+    </task>
+    <task id="LOCAL-00007" summary="base64解码bug,数据库连接池">
+      <created>1587719109550</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587719109550</updated>
+    </task>
+    <task id="LOCAL-00008" summary="优化优化优化优化优化">
+      <created>1587871212126</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587871212126</updated>
+    </task>
+    <task id="LOCAL-00009" summary="增加web 及接口调整">
+      <created>1587890232635</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587890232635</updated>
+    </task>
+    <task id="LOCAL-00010" summary="增加web 及接口调整">
+      <created>1587890242981</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587890242981</updated>
+    </task>
+    <task id="LOCAL-00011" summary="增加web 及接口调整">
+      <created>1587890259780</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587890259780</updated>
+    </task>
+    <task id="LOCAL-00012" summary="增加web 及接口调整">
+      <created>1587890517144</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587890517144</updated>
+    </task>
+    <task id="LOCAL-00013" summary="增加web 及接口调整">
+      <created>1587890622273</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1587890622273</updated>
+    </task>
+    <task id="LOCAL-00014" summary="忘记密码跳转路径修改">
+      <created>1587891415050</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587891415050</updated>
+    </task>
+    <task id="LOCAL-00015" summary="上传模板字段时添加归集库">
+      <created>1587978426306</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587978426306</updated>
+    </task>
+    <task id="LOCAL-00016" summary="文件全量上传 归集库新增数据,页面改动">
+      <created>1588062873933</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1588062873933</updated>
+    </task>
+    <task id="LOCAL-00017" summary="字段模板修改">
+      <created>1588062934196</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1588062934196</updated>
+    </task>
+    <task id="LOCAL-00018" summary="页面修改">
+      <created>1588063439399</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1588063439399</updated>
+    </task>
+    <task id="LOCAL-00019" summary="无用文件删除">
+      <created>1588063559564</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1588063559564</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="用户 部门 资源目录 增删查" />
+    <MESSAGE value="add  fastJson" />
+    <MESSAGE value="手工上报 手工上报" />
+    <MESSAGE value="手工上报 模板字段生成 模板下载 excel解析 上传记录查询" />
+    <MESSAGE value="模板字段生成 模板下载 excel解析 上传记录查询" />
+    <MESSAGE value="模板字段添加 模板生成 excel解析 上传记录查询" />
+    <MESSAGE value="模板校验 上传云盘" />
+    <MESSAGE value="base64解码bug,数据库连接池" />
+    <MESSAGE value="优化优化优化优化优化" />
+    <MESSAGE value="增加web 及接口调整" />
+    <MESSAGE value="忘记密码跳转路径修改" />
+    <MESSAGE value="上传模板字段时添加归集库" />
+    <MESSAGE value="文件全量上传 归集库新增数据,页面改动" />
+    <MESSAGE value="页面修改修改修改" />
+    <MESSAGE value="字段模板修改" />
+    <MESSAGE value="页面修改" />
+    <MESSAGE value="无用文件删除" />
+    <option name="LAST_COMMIT_MESSAGE" value="无用文件删除" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="21" key="#Inspections" timestamp="1587347233204">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="21" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1587347233204" />
+    <state x="488" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1587363845357">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1587363845357" />
+    <state x="373" y="288" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1587886909053">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="373" y="288" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1587886909053" />
+    <state x="413" y="109" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588056562347">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="109" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1588056562347" />
+    <state x="162" y="0" key="CommitChangelistDialog2" timestamp="1588063558263">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="162" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588063558263" />
+    <state x="466" y="113" key="FileChooserDialogImpl" timestamp="1588121516010">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="466" y="113" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588121516010" />
+    <state width="1322" height="106" key="GridCell.Tab.0.bottom" timestamp="1588124452865">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588124452865" />
+    <state width="1322" height="106" key="GridCell.Tab.0.center" timestamp="1588124452865">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588124452865" />
+    <state width="1322" height="106" key="GridCell.Tab.0.left" timestamp="1588124452865">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588124452865" />
+    <state width="1322" height="106" key="GridCell.Tab.0.right" timestamp="1588124452865">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588124452865" />
+    <state width="1322" height="106" key="GridCell.Tab.1.bottom" timestamp="1588124452717">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588124452717" />
+    <state width="1322" height="106" key="GridCell.Tab.1.center" timestamp="1588124452717">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1588124452717" />
+    <state width="1322" height="106" key="GridCell.Tab.1.left" timestamp="1588124452717">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1588124452717" />
+    <state width="1322" height="106" key="GridCell.Tab.1.right" timestamp="1588124452717">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1588124452717" />
+    <state width="1322" height="106" key="GridCell.Tab.2.bottom" timestamp="1588124452717">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588124452717" />
+    <state width="1322" height="106" key="GridCell.Tab.2.center" timestamp="1588124452717">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1588124452717" />
+    <state width="1322" height="106" key="GridCell.Tab.2.left" timestamp="1588124452717">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1588124452717" />
+    <state width="1322" height="106" key="GridCell.Tab.2.right" timestamp="1588124452717">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="106" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1588124452717" />
+    <state x="215" y="0" key="SettingsEditor" timestamp="1588124426884">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="215" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1588124426883" />
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1588121446743">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588121446743" />
+    <state x="339" y="231" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogintegrate" timestamp="1587346391562">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="231" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogintegrate/0.0.1366.728@0.0.1366.728" timestamp="1587346391562" />
+    <state x="496" y="208" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588063426385">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="496" y="208" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1588063426385" />
+    <state x="413" y="127" key="extract.method.dialog" timestamp="1588045253501">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="127" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1588045253501" />
+    <state x="339" y="157" key="run.anything.popup" timestamp="1587533957876">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1587533957876" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1588036129443">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1588036129443" />
+    <state x="372" y="45" key="spring file set editor" timestamp="1587708978785">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="372" y="45" key="spring file set editor/0.0.1366.728@0.0.1366.728" timestamp="1587708978785" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="templateList.get(1).get(1)" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+</project>

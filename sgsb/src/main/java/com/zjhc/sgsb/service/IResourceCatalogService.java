@@ -27,6 +27,8 @@ public interface IResourceCatalogService extends IService<ResourceCatalog> {
 
     InterfaceResult<ResourceCatalog> updateResourceCatalog(UserInfo userInfo,ResourceCatalog catalog);
 
+    InterfaceResult<ResourceCatalog> deleteResourceCatalog(UserInfo userInfo,ResourceCatalog catalog);
+
     InterfaceResult<String> addCatalogData(UserInfo userInfo, String catalogCode, MultipartFile excel) throws Exception;
 
 }

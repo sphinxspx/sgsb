@@ -112,7 +112,7 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
         wrapper.eq("catalog_code",catalog.getCatalogCode());
         wrapper.eq("is_delete",1);
         ResourceCatalog resourceCatalog = resourceCatalogMapper.selectOne(wrapper);
-        if ( Constant.SUPER_USER_DEPT_CODE.equals(userInfo.getDeptCode()) || resourceCatalog.getCreateDept().equals(userInfo.getDeptCode())){
+        if ( Constant.SUPER_USER_DEPT_CODE.equals(userInfo.getDeptCode()) || resourceCatalog.getDeptCode().equals(userInfo.getDeptCode())){
             catalog.setUpdateDept(userInfo.getDeptCode());
             catalog.setUpdateUser(userInfo.getUsername());
             catalog.setUpdateTime(LocalDateTime.now());
@@ -120,6 +120,29 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
             return InterfaceResult.hasExist(update,"修改成功","修改失败",catalog);
         }
         return InterfaceResult.getError("没有修改权限！");
+    }
+
+    public InterfaceResult<ResourceCatalog> deleteResourceCatalog(UserInfo userInfo,ResourceCatalog catalog){
+        QueryWrapper<ResourceCatalog> wrapper = new QueryWrapper<>();
+        wrapper.eq("catalog_code",catalog.getCatalogCode());
+        wrapper.eq("is_delete",1);
+        ResourceCatalog resourceCatalog = resourceCatalogMapper.selectOne(wrapper);
+        if ( Constant.SUPER_USER_DEPT_CODE.equals(userInfo.getDeptCode()) || resourceCatalog.getDeptCode().equals(userInfo.getDeptCode())){
+            QueryWrapper<UploadRecord> recordWrapper = new QueryWrapper<>();
+            recordWrapper.eq("catalog_code",catalog.getCatalogCode());
+            recordWrapper.eq("upload_status",1);
+            recordWrapper.eq("is_delete",1);
+            if (uploadRecordService.count(recordWrapper) > 0){
+                return InterfaceResult.getError("目录存在数据,无法删除!");
+            }
+            catalog.setIsDelete(0);
+            catalog.setUpdateDept(userInfo.getDeptCode());
+            catalog.setUpdateUser(userInfo.getUsername());
+            catalog.setUpdateTime(LocalDateTime.now());
+            int update = resourceCatalogMapper.update(catalog, wrapper);
+            return InterfaceResult.hasExist(update,"删除成功","删除失败",null);
+        }
+        return InterfaceResult.getError("没有删除权限！");
     }
 
     public InterfaceResult<String> addCatalogData(UserInfo userInfo, String catalogCode, MultipartFile excel){

@@ -81,6 +81,16 @@ public class ResourceCatalogController extends BaseController {
         return resourceCatalogService.updateResourceCatalog(authentication.getData(),catalog);
     }
 
+    @ApiOperation(value="修改资源")
+    @RequestMapping(value = "delete_resource_catalog")
+    public InterfaceResult<ResourceCatalog> deleteResourceCatalog(String token,ResourceCatalog catalog){
+        InterfaceResult<UserInfo> authentication = userInfoService.authentication(token);
+        if (! authentication.issuccess()){
+            return InterfaceResult.getError("请先登录");
+        }
+        return resourceCatalogService.deleteResourceCatalog(authentication.getData(),catalog);
+    }
+
     @ApiOperation(value="excel上传解析保存数据,保存数据到归集表(增量)")
     @RequestMapping(value = "add_resource_data")
     public InterfaceResult<String> addCatalogData(String token, String catalogCode, MultipartFile file) throws Exception {

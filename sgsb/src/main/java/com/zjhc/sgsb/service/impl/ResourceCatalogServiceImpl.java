@@ -17,6 +17,7 @@ import com.zjhc.sgsb.service.IUploadRecordService;
 import com.zjhc.sgsb.util.DBMSMetaUtil;
 import com.zjhc.sgsb.util.ExcelUtil;
 import com.zjhc.sgsb.util.YunHelper;
+import net.sf.cglib.core.Local;
 import org.apache.poi.ss.formula.functions.T;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.BatchUpdateException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -77,7 +76,7 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
         return InterfaceResult.getError("结果为空！"+Lists.newArrayList());
     }
 
-    public InterfaceResult<ResourceCatalog> addResourceCatalog(UserInfo userInfo,ResourceCatalog catalog){
+    public InterfaceResult<ResourceCatalog> addResourceCatalog(UserInfo userInfo,ResourceCatalog catalog,MultipartFile excel) {
         QueryWrapper<ResourceCatalog> wrapper = new QueryWrapper<>();
         wrapper.eq("catalog_name",catalog.getCatalogName());
         wrapper.eq("is_delete",1);
@@ -92,15 +91,22 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
         Dept dept = deptService.getOne(deptWrapper);
         catalog.setDeptName(dept.getDeptName());
         catalog.setCatalogCode(catalogCode);
+        if ("非格式化文件".equals(catalog.getIsFormat())){
+            catalog.setIsComplete(1);
+        }
         catalog.setCreateDept(userInfo.getDeptName());
         catalog.setCreateUser(userInfo.getUsername());
         catalog.setCreateTime(LocalDateTime.now());
         int insertStatus = resourceCatalogMapper.insert(catalog);
         if(insertStatus > 0){
             //目录基础信息创建成功,添加目录模板信息,创建归集库表
-//            if ("格式化文件".equals(catalog.getIsFormat())){
-//                catalogTemplateService.addCatalogTemplateExcel(userInfo,excel,catalogCode);
-//            }
+            if ("格式化文件".equals(catalog.getIsFormat())){
+                try{
+                    catalogTemplateService.addCatalogTemplateExcel(userInfo,excel,catalogCode);
+                }catch (IOException e){
+                    logger.info("addResourceCatalog======"+e);
+                }
+            }
             return InterfaceResult.getSuccess("创建成功",catalog);
         }
 
@@ -145,9 +151,10 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
         return InterfaceResult.getError("没有删除权限！");
     }
 
-    public InterfaceResult<String> addCatalogData(UserInfo userInfo, String catalogCode, MultipartFile excel){
+    public InterfaceResult<String> addCatalogData(UserInfo userInfo, String catalogCode,String uploadType, MultipartFile excel){
         LinkedList<LinkedList<Object>> templateList = Lists.newLinkedList();
         UploadRecord uploadRecord = new UploadRecord();
+        String uploadTypeStr = "增量";
         boolean insertRecord = false;
         try {
             templateList = ExcelUtil.getExcelToList(excel.getInputStream(), Constant.EXCEL_FILE_TYPE);
@@ -176,17 +183,23 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
                     Constant.RESOURCE_DATASOURCE.PASSWORD);
             if (conn == null){
                 logger.info("数据库连接失败!");
+                uploadRecord.setUploadStatus(0);
+                uploadRecord.setErrorMsg("归集数据库连接失败!");
                 return InterfaceResult.getError("数据库连接失败!");
             }
             //上传至云盘,保存上传记录
             JSONObject response = YunHelper.upload(excel.getBytes(), excel.getOriginalFilename());
             JSONObject body=JSONObject.parseObject(response.get("body").toString());
             uploadRecord.setFileUrl(YunHelper.getDownloadUrl(body.getString("infoid")));
-
+            String tableName = catalog.getTableName();
             String dbType = conn.getMetaData().getDatabaseProductName();
-            String sqlTemp = getInsertSqlTemp(templateList,fieldList,dbType,catalog.getTableName());//拼接sql语句
+            String sqlTemp = getInsertSqlTemp(templateList,fieldList,dbType,tableName);//拼接sql语句
             int errorLine = 0;
             conn.setAutoCommit(false);
+            if (Constant.UPLOAD_TYPE.COVER.equals(uploadType)){//全量上传,先删除所有数据,并将之前的上传记录全改为失效
+                uploadTypeStr = "全量";
+                this.deleteDataByUploadCover(conn,dbType,tableName,catalogCode,userInfo);
+            }
             PreparedStatement pstmt= conn.prepareStatement(sqlTemp);
             logger.info("++++++++++++模板打印开始++++++++++++++");
             logger.info(sqlTemp);
@@ -227,7 +240,7 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
                 uploadRecord.setCatalogCode(catalogCode);
                 uploadRecord.setFileName(excel.getOriginalFilename());
                 uploadRecord.setDataCount(templateList.size()-1);
-                uploadRecord.setUploadType("增量");
+                uploadRecord.setUploadType(uploadTypeStr);
                 uploadRecord.setCreateUser(userInfo.getUsername());
                 uploadRecord.setCreateDept(userInfo.getDeptName());
                 uploadRecord.setCreateTime(LocalDateTime.now());
@@ -237,6 +250,41 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
         return InterfaceResult.getSuccess("操作成功!");
     }
 
+    public InterfaceResult<String> addCatalogDataUnFormat(UserInfo userInfo,String catalogCode,MultipartFile file){
+        boolean insertRecord = true;
+        QueryWrapper<ResourceCatalog> wrapper = new QueryWrapper<>();
+        wrapper.eq("catalog_code",catalogCode);
+        wrapper.eq("is_delete",1);
+        wrapper.eq("is_format","非格式化文件");
+        ResourceCatalog catalog = resourceCatalogMapper.selectOne(wrapper);
+        if (catalog == null){
+            insertRecord = false;
+            return InterfaceResult.getError("目录不存在!");
+        }
+        UploadRecord record = new UploadRecord();
+        //文件上传到云盘
+        try{
+            JSONObject response = YunHelper.upload(file.getBytes(), file.getOriginalFilename());
+            JSONObject body=JSONObject.parseObject(response.get("body").toString());
+            record.setFileUrl(YunHelper.getDownloadUrl(body.getString("infoid")));
+            record.setFileName(file.getOriginalFilename());
+            record.setUploadStatus(1);
+        }catch (IOException ex){
+            logger.info("addCatalogDataUnFormat======="+ex);
+            record.setUploadStatus(0);
+            record.setErrorMsg(ex.toString());
+            return InterfaceResult.getError("文件上传云盘失败!");
+        }finally {
+            if (insertRecord){
+                record.setCatalogCode(catalogCode);
+                record.setCreateUser(userInfo.getUsername());
+                record.setCreateDept(userInfo.getDeptName());
+                record.setCreateTime(LocalDateTime.now());
+                uploadRecordService.save(record);
+            }
+        }
+        return InterfaceResult.getSuccess("上传成功!");
+    }
 
     /**
      * 得到一个insert的模板
@@ -269,6 +317,28 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
         return headSql.toString();
     }
 
+    //全量上传,先删除所有数据,并将之前的上传记录全改为失效
+    private void deleteDataByUploadCover(Connection conn,String dbType,String tableName,String catalogCode,UserInfo userInfo) throws SQLException {
+        String deleteSql = "delete from " +tableName;
+        if ("Oracle".equals(dbType)){
+            deleteSql = deleteSql + " where 1=1 ";
+        }
+        Statement stmt = conn.createStatement();
+        logger.info("全量上传先进行删数据操作,sql=============================="+deleteSql);
+        stmt.execute(deleteSql);
+        conn.commit();
+        stmt.close();
+        QueryWrapper<UploadRecord> recordWrapper = new QueryWrapper<>();
+        recordWrapper.eq("catalog_code",catalogCode);
+        recordWrapper.eq("upload_status",1);
+        UploadRecord record = new UploadRecord();
+        record.setUploadStatus(0);
+        record.setUpdateDept(userInfo.getDeptName());
+        record.setUpdateUser(userInfo.getUsername());
+        record.setUpdateTime(LocalDateTime.now());
+        uploadRecordService.update(record,recordWrapper);
+    }
+
     private boolean checkTemplate(List<CatalogTemplate> templateList,LinkedList<Object> ele){
         if (templateList.size() == ele.size()){
             for (int index = 0; index< templateList.size(); index++){
@@ -280,6 +350,5 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
         }
         return false;
     }
-
 
 }

@@ -341,12 +341,12 @@ public class ExcelUtil {
         	cell.setCellType(HSSFCell.CELL_TYPE_STRING);
         }
         //填充内容
-        row = sheet.createRow(1);
-        for(int i=0;i<title.size();i++){
-        	cell=row.createCell(i);
-        	cell.setCellValue("xxx");
-        	cell.setCellType(HSSFCell.CELL_TYPE_STRING);
-        }
+//        row = sheet.createRow(1);
+//        for(int i=0;i<title.size();i++){
+//        	cell=row.createCell(i);
+//        	cell.setCellValue("xxx");
+//        	cell.setCellType(HSSFCell.CELL_TYPE_STRING);
+//        }
         return wb;
     }
     

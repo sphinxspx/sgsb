@@ -140,7 +140,18 @@
             } else if (obj.event === 'deleteCatalog') {
                 layer.confirm('真的删除行么', function (index) {
                     obj.del();
+                    $.ajax({
+                        type: "get",
+                        url: "http://10.80.7.86:8181/sgsb/resource-catalog/delete_resource_catalog?token="+sessionStorage.getItem('token')+"&catalogCode="+data.catalogCode,
+                        success: function (res) {
+                            layer.msg(res.msg)
+                        },
+                        error:function(){
+                            layer.msg("未知错误!")
+                        }
+                    });
                     layer.close(index);
+                    return false
                 });
             }else if(obj.event === 'download'){//模板下载
                 // excel('1','2');

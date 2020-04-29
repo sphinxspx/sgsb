@@ -53,16 +53,6 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         return InterfaceResult.getSuccess("登陆成功", token);
     }
 
-    public InterfaceResult<String> deleteUser(UserInfo userInfo) {
-        if (userInfo == null || userInfo.getId() == null){
-            return InterfaceResult.getError("参数为空！");
-        }
-        userInfo.setIsDelete(0);
-        userInfo.setUpdateTime(LocalDateTime.now());
-        int update = userInfoMapper.updateById(userInfo);
-        return InterfaceResult.hasExist(update, "删除成功", "删除失败", null);
-    }
-
     public InterfaceResult<String> forgetPassword(UserInfo userInfo) {
         QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
         wrapper.eq("username", userInfo.getUsername());
@@ -85,7 +75,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         wrapper.eq("is_delete",1);
         UserInfo baseInfo = userInfoMapper.selectOne(wrapper);
         if (baseInfo == null){
-            return InterfaceResult.getError("旧密码错误!");
+            return InterfaceResult.getError("用户不存在/旧密码错误!");
         }
         baseInfo.setPassword(MD5Util.calc(newPassword));
         baseInfo.setUpdateTime(LocalDateTime.now());
@@ -98,8 +88,18 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
             return InterfaceResult.getError("请先登录！");
         }
         String jsonStr = new String(Base64Utils.decode(token.replaceAll(" ","+").getBytes()));
-        UserInfo userInfo = JSON.parseObject(jsonStr, UserInfo.class);
-        return InterfaceResult.getSuccess("信息校验成功", userInfo);
+        UserInfo info = JSON.parseObject(jsonStr, UserInfo.class);
+        if (info != null && info.getUsername() != null &&  info.getDeptCode() != null){
+            QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
+            wrapper.eq("username",info.getUsername());
+            wrapper.eq("dept_code",info.getDeptCode());
+            wrapper.eq("is_delete",1);
+            UserInfo userInfo = userInfoMapper.selectOne(wrapper);
+            if (userInfo != null){
+                return InterfaceResult.getSuccess("信息校验成功", userInfo);
+            }
+        }
+        return InterfaceResult.getError("用户信息校验失败!");
     }
 
 }

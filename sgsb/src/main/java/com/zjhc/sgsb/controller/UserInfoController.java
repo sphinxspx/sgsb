@@ -38,19 +38,6 @@ public class UserInfoController extends BaseController {
         return userInfoService.login(userInfo);
     }
 
-    @ApiOperation(value="删除用户")
-    @RequestMapping(value = "delete_user")
-    public InterfaceResult<String> deleteUser(String token,UserInfo userInfo){
-        InterfaceResult<UserInfo> authentication = userInfoService.authentication(token);
-        if (!authentication.issuccess()){
-            return InterfaceResult.getError(authentication.getMsg());
-        }
-        if (authentication.getData().getIsSuperUser() != 1 ){
-            return InterfaceResult.getError("没有删除用户权限！");
-        }
-        return userInfoService.deleteUser(userInfo);
-    }
-
     @ApiOperation(value="忘记密码")
     @RequestMapping(value = "forget_password")
     public InterfaceResult<String> forgetPassword(UserInfo userInfo){

@@ -37,5 +37,10 @@ public class Constant {
         String TEXT = "TEXT";
     }
 
+    public interface UPLOAD_TYPE {//模板字段类型
+        String ADD = "UPLOAD_ADD"; //增量
+        String COVER = "UPLOAD_COVER"; //全量
+    }
+
 
 }

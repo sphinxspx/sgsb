@@ -16,8 +16,6 @@ public interface IUserInfoService extends IService<UserInfo> {
 
     InterfaceResult<String> login(UserInfo userInfo);
 
-    InterfaceResult<String> deleteUser(UserInfo userInfo);
-
     InterfaceResult<String> forgetPassword(UserInfo userInfo);
 
     InterfaceResult<String> resetPassword(UserInfo userInfo,String newPassword);

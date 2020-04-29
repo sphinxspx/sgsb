@@ -23,12 +23,14 @@ public interface IResourceCatalogService extends IService<ResourceCatalog> {
 
     InterfaceResult<List<ResourceCatalog>> listResourceCatalog(UserInfo userInfo,ResourceCatalog catalog,Page<ResourceCatalog> page);
 
-    InterfaceResult<ResourceCatalog> addResourceCatalog(UserInfo userInfo, ResourceCatalog catalog);
+    InterfaceResult<ResourceCatalog> addResourceCatalog(UserInfo userInfo, ResourceCatalog catalog,MultipartFile file);
 
     InterfaceResult<ResourceCatalog> updateResourceCatalog(UserInfo userInfo,ResourceCatalog catalog);
 
     InterfaceResult<ResourceCatalog> deleteResourceCatalog(UserInfo userInfo,ResourceCatalog catalog);
 
-    InterfaceResult<String> addCatalogData(UserInfo userInfo, String catalogCode, MultipartFile excel) throws Exception;
+    InterfaceResult<String> addCatalogData(UserInfo userInfo, String catalogCode,String uploadType, MultipartFile excel) ;
+
+    InterfaceResult<String> addCatalogDataUnFormat(UserInfo userInfo,String catalogCode,MultipartFile file);
 
 }

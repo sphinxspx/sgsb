@@ -196,7 +196,6 @@ public class CatalogTemplateServiceImpl extends ServiceImpl<CatalogTemplateMappe
      * 将目标表先删除，再重建
      * @param excel 上传的数据
      * @param conn	数据库连接
-     * @param deptName 部门名
      */
     private void createTable(LinkedList<LinkedList<Object>> excel,Connection conn,String tableName){
         String dbType;
@@ -243,6 +242,5 @@ public class CatalogTemplateServiceImpl extends ServiceImpl<CatalogTemplateMappe
         }
         return result;
     }
-
 
 }

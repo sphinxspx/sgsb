@@ -77,6 +77,9 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
     }
 
     public InterfaceResult<ResourceCatalog> addResourceCatalog(UserInfo userInfo,ResourceCatalog catalog,MultipartFile excel) {
+        if( "格式化文件".equals(catalog.getIsFormat()) && excel ==null){
+            return InterfaceResult.getError("格式化文件下需上传模板目录文件!");
+        }
         QueryWrapper<ResourceCatalog> wrapper = new QueryWrapper<>();
         wrapper.eq("catalog_name",catalog.getCatalogName());
         wrapper.eq("is_delete",1);

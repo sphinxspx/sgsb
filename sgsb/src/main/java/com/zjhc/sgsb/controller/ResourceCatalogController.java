@@ -95,11 +95,11 @@ public class ResourceCatalogController extends BaseController {
     @ApiOperation(value="格式化文件目录上传:excel解析保存数据,保存数据到归集表(增量)")
     @RequestMapping(value = "add_resource_data")
     public InterfaceResult<String> addCatalogData(String token, String catalogCode,String uploadType, MultipartFile file) throws Exception {
-        token = "eyJjcmVhdGVUaW1lIjoiMjAyMC0wNC0yMFQxMzo1ODowMCIsImRlcHRDb2RlIjoiYWRtaW5pc3RyYXRvciIsImRlcHROYW1l" +
-                "Ijoi6LaF57qn566h55CG5ZGYIiwiaWQiOjEsImlzRGVsZXRlIjoxLCJpc1N1cGVyVXNlciI6MSwib3JkZXJieSI6OTksInBhc3N3b3J" +
-                "kIjoiZTEwYWRjMzk0OWJhNTlhYmJlNTZlMDU3ZjIwZjg4M2UiLCJ1c2VybmFtZSI6ImFkbWluIn0=";
-        catalogCode = "8226604cbeea44c0ad754432bd64f91f";
-        uploadType = Constant.UPLOAD_TYPE.COVER;//增量,全量标识
+//        token = "eyJjcmVhdGVUaW1lIjoiMjAyMC0wNC0yMFQxMzo1ODowMCIsImRlcHRDb2RlIjoiYWRtaW5pc3RyYXRvciIsImRlcHROYW1l" +
+//                "Ijoi6LaF57qn566h55CG5ZGYIiwiaWQiOjEsImlzRGVsZXRlIjoxLCJpc1N1cGVyVXNlciI6MSwib3JkZXJieSI6OTksInBhc3N3b3J" +
+//                "kIjoiZTEwYWRjMzk0OWJhNTlhYmJlNTZlMDU3ZjIwZjg4M2UiLCJ1c2VybmFtZSI6ImFkbWluIn0=";
+//        catalogCode = "8226604cbeea44c0ad754432bd64f91f";
+//        uploadType = Constant.UPLOAD_TYPE.COVER;//增量,全量标识
         InterfaceResult<UserInfo> authentication = userInfoService.authentication(token);
         if (!authentication.issuccess()){
             return InterfaceResult.getError(authentication.getMsg());
@@ -111,10 +111,6 @@ public class ResourceCatalogController extends BaseController {
     @ApiOperation(value="非格式化文件目录上传:文件保存")
     @RequestMapping(value = "add_resource_data_unformat")
     public InterfaceResult<String> addCatalogDataUnFormat(String token, String catalogCode,MultipartFile file) throws Exception {
-        token = "eyJjcmVhdGVUaW1lIjoiMjAyMC0wNC0yMFQxMzo1ODowMCIsImRlcHRDb2RlIjoiYWRtaW5pc3RyYXRvciIsImRlcHROYW1l" +
-                "Ijoi6LaF57qn566h55CG5ZGYIiwiaWQiOjEsImlzRGVsZXRlIjoxLCJpc1N1cGVyVXNlciI6MSwib3JkZXJieSI6OTksInBhc3N3b3J" +
-                "kIjoiZTEwYWRjMzk0OWJhNTlhYmJlNTZlMDU3ZjIwZjg4M2UiLCJ1c2VybmFtZSI6ImFkbWluIn0=";
-        catalogCode = "111111";
         InterfaceResult<UserInfo> authentication = userInfoService.authentication(token);
         if (!authentication.issuccess()){
             return InterfaceResult.getError(authentication.getMsg());

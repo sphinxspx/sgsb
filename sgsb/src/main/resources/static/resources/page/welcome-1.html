@@ -25,10 +25,16 @@
         <script type="text/html" id="currentTableBar">
             {{# if (d.isFormat === "格式化文件"){}}
                 <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="download">模板下载</a>
-                <a class="layui-btn layui-btn-xs  layui-btn-warm" lay-event="uploadAdd">增量上传</a>
-                <a class="layui-btn layui-btn-xs  layui-btn-warm" lay-event="uploadCover">全量上传</a>
+                <label><input type="file" style="display:none" id="addFile" name="addFile">
+                    <a class="layui-btn layui-btn-xs  layui-btn-warm" lay-event="uploadAdd">增量上传</a>
+                </label>
+                <label><input type="file" style="display:none" id="coverFile" name="coverFile">
+                    <a class="layui-btn layui-btn-xs  layui-btn-warm" lay-event="uploadCover">全量上传</a>
+                </label>
             {{#  } else if(d.isFormat === "非格式化文件"){}}
-                <a class="layui-btn layui-btn-xs  layui-btn-warm" lay-event="uploadFile">文件上传</a>
+                <label><input type="file" style="display:none" class="file3" onchange="uploadFile(this)">
+                    <a class="layui-btn layui-btn-xs  layui-btn-warm" >文件上传</a>
+                </label>
             {{#  } }}
             <a class="layui-btn layui-btn-xs " lay-event="uploadHistory">上传历史</a>
             <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="deleteCatalog">删除</a>
@@ -39,6 +45,34 @@
 <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script src="../js/excel/JsonExportExcel.min.js" charset="utf-8"></script>
 <script>
+
+    //这段放在哪........................index怎么加
+    function uploadFile(file3,index){
+        console.log(index)
+        var fd = new FormData();
+        fd.append("token",sessionStorage.getItem('token'));
+        fd.append("catalogCode","code");
+        fd.append("id",index);
+        fd.append("file",file3);
+        // fd.append("file", $('.file3')[0].files[0]);
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8181/sgsb/resource-catalog/add_resource_data_unformat",
+            data:fd,
+            processData: false,
+            contentType: false,
+            dataType: "json",
+            success: function (res) {
+                layer.msg(res.msg);
+                if(res.success){
+                    setTimeout(() => {
+                        var iframeIndex = parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(iframeIndex);
+                    }, 2000);
+                }
+            }
+        });
+    }
 
     layui.use(['form', 'table','upload'], function () {
         var $ = layui.jquery,
@@ -72,11 +106,12 @@
             },
             cols: [[
                 {type: "checkbox", width: 50, fixed: "left"},
-                {field: 'id', width: 80, title: 'ID', sort: true, align: "center"},
-                {field: 'catalogName', width: 180, title: '目录名称', align: "center"},
+                {field: 'id', width: 70, title: 'ID', sort: true, align: "center"},
+                {field: 'catalogName', width: 150, title: '目录名称', align: "center"},
                 {field: 'catalogIntro', width: 180, title: '目录信息', align: "center"},
-                {field: 'isFormat', title: '文件类型', width: 180, align: "center"},
-                {title: '操作', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
+                {field: 'deptName', width: 150, title: '所属部门', align: "center"},
+                {field: 'isFormat', title: '文件类型', width: 130, align: "center"},
+                {title: '操作', minWidth: 100, templet: '#currentTableBar', fixed: "right", align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
             limit: 15,
@@ -118,25 +153,9 @@
             var tr = obj.tr;
 
             console.log(tr)
+
             if (obj.event === 'uploadAdd') {//上传数据
 
-                var uploadInst=upload.render({
-                    elem: tr,
-                    url: 'http://localhost:8181/sgsb/catalog-data/add_catalog_data', //改成您自己的上传接口
-                    accept: 'file', //普通文件
-                    data:{token:sessionStorage.getItem("token"),catalogCode:data.catalogCode},
-                    choose: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
-                        console.log(obj)
-                        // layer.load(); //上传loading
-                    },
-                    done: function(res){
-                        layer.msg('上传成功');
-                        console.log(res);
-                    },
-                    error: function(index, upload){
-                        console.log(index, upload)
-                    }
-                });
             } else if (obj.event === 'deleteCatalog') {
                 layer.confirm('您确定要删除此行吗?',{btn: ['确定', '取消'],title:"提示"}, function(){
                     $.ajax({
@@ -157,7 +176,7 @@
                 // excel('1','2');
                 window.open('http://localhost:8181/sgsb/catalog-template/upload_template?token='+sessionStorage.getItem('token')+'&catalogCode='+data.catalogCode)
                 return false
-            } else if(obj.event == 'uploadHistory'){//上传历史
+            } else if(obj.event === 'uploadHistory'){//上传历史
                 let strings = '?catalogCode='+data.catalogCode+'&catalogName='+data.catalogName+'&catalogIntro='+data.catalogIntro
                 var index = layer.open({
                     title: '上传历史',
@@ -175,6 +194,7 @@
                 $(window).on("resize", function () {
                     layer.full(index);
                 });
+            }else if (obj.event === 'uploadFile'){//非格式化文件上传
             }
         });
 
@@ -194,6 +214,8 @@
         toExcel.saveExcel();
 
     }
+
+
     function reload(table){
         table.reload('currentTableId', {
             url: 'http://localhost:8181/sgsb/resource-catalog/list_resource_catalog',
@@ -208,21 +230,6 @@
         });
     }
 
-    function download(data) {
-        if (!data) {
-            return
-        }
-        const url = window.URL.createObjectURL(new Blob([data]))
-        let link = document.createElement('a')
-        link.style.display = 'none'
-        link.href = url
-        link.setAttribute('download', '考勤统计.xlsx')
-        document.body.appendChild(link)
-        link.click()
-        URL.revokeObjectURL(link.href) // 释放URL 对象
-        document.body.removeChild(link)
-        link = null
-    }
 </script>
 <script>
 </script>

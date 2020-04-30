@@ -34,9 +34,6 @@
             <div class="layui-input-inline">
                 <select name="deptCode" lay-verify="required" class="listDept">
                     <option value="">请选择</option>
-                    <!--                <option value="0">公安局</option>-->
-                    <!--                <option value="1">烟草局</option>-->
-                    <!--                <option value="2">林业局</option>-->
                 </select>
             </div>
     </div>
@@ -50,10 +47,12 @@
     </div>
 
     <div class="layui-form-item" id="contents" style="display: block">
-        <div class="layui-input-block">
-            <a href="http://localhost:8181/download/table.xls" class="layui-btn layui-btn-normal layui-btn-sm">字段模板下载</a>
-            <a href="http://www.layui.com" class="layui-btn layui-btn-normal layui-btn-sm">模板文件上传</a>
-        </div>
+        <label class="layui-form-label required">上传字段模板文件</label>
+        <label><input type="file" style="display:none" id="file" name="file">
+            <a class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon"></i>文件上传</a>
+        </label>
+<!--            <button type="button" class="layui-btn layui-btn-normal layui-btn-sm" id="test3"><i class="layui-icon"></i>上传文件</button>-->
+        <a href="http://localhost:8181/download/table.xls" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon layui-icon-download-circle"></i> 字段模板下载</a>
     </div>
 
     <div class="layui-form-item">
@@ -94,12 +93,22 @@
 
         //监听提交
         form.on('submit(saveBtn)', function (datas) {
-            var params = "?catalogName="+datas.field.catalogName+"&catalogIntro="+datas.field.catalogIntro+"&deptCode="+datas.field.deptCode+"&isFormat="+datas.field.isFormat+"&token="+sessionStorage.getItem('token');
-            console.log(params);
+            // var params = "?catalogName="+datas.field.catalogName+"&catalogIntro="+datas.field.catalogIntro+"&deptCode="+datas.field.deptCode+"&isFormat="+datas.field.isFormat+"&token="+sessionStorage.getItem('token');
+            // console.log(params);
+            var fd = new FormData();
+            fd.append("catalogName",datas.field.catalogName);
+            fd.append("catalogIntro",datas.field.catalogIntro);
+            fd.append("deptCode",datas.field.deptCode);
+            fd.append("isFormat",datas.field.isFormat);
+            fd.append("token",sessionStorage.getItem('token'));
+            fd.append("file", $('#file').files[0]);
+            console.log(fd);
             $.ajax({
                 type: "post",
-                url: "http://localhost:8181/sgsb/resource-catalog/add_resource_catalog"+params,
-                // data:Object.assign({},datas.field,{token:sessionStorage.getItem('token')}),
+                url: "http://localhost:8181/sgsb/resource-catalog/add_resource_catalog",
+                data:fd,
+                processData: false,
+                contentType: false,
                 dataType: "json",
                 success: function (res) {
                     layer.msg(res.msg);

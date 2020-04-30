@@ -24,6 +24,7 @@
 
         <script type="text/html" id="currentTableBar">
             {{# if (d.isFormat === "格式化文件"){}}
+
                 <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="download">模板下载</a>
                 <label><input type="file" style="display:none" id="addFile" name="addFile">
                     <a class="layui-btn layui-btn-xs  layui-btn-warm" lay-event="uploadAdd">增量上传</a>
@@ -32,7 +33,8 @@
                     <a class="layui-btn layui-btn-xs  layui-btn-warm" lay-event="uploadCover">全量上传</a>
                 </label>
             {{#  } else if(d.isFormat === "非格式化文件"){}}
-                <label><input type="file" style="display:none" class="file3" onchange="uploadFile(this)">
+                {{d.catalogCode}}
+                <label><input type="file" style="display:none" class="file3" onchange="uploadFile('{{d.catalogCode}}')">
                     <a class="layui-btn layui-btn-xs  layui-btn-warm" >文件上传</a>
                 </label>
             {{#  } }}
@@ -46,16 +48,16 @@
 <script src="../js/excel/JsonExportExcel.min.js" charset="utf-8"></script>
 <script>
 
-    //这段放在哪........................index怎么加
-    function uploadFile(file3,index){
-        console.log(index)
+
+    function uploadFile(id){
+        console.log(id);
+        return
         var fd = new FormData();
         fd.append("token",sessionStorage.getItem('token'));
         fd.append("catalogCode","code");
-        fd.append("id",index);
-        fd.append("file",file3);
+        fd.append("file",file3.files[0]);
         // fd.append("file", $('.file3')[0].files[0]);
-        $.ajax({
+        layui.jquery.ajax({
             type: "post",
             url: "http://localhost:8181/sgsb/resource-catalog/add_resource_data_unformat",
             data:fd,

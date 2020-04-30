@@ -95,16 +95,14 @@
             }
             $.ajax({
                 type: "post",
-                url: "http://localhost:8181/sgsb/user-info/login",
+                url: "http://10.80.7.86:8181/sgsb/user-info/login",
                 data: data,
                 dataType: "json",
                 success: function (res) {
                     if(res.success){
-                        console.log(res);
-                        sessionStorage.setItem("token",res.data.token);
-                        sessionStorage.setItem("deptCode",res.data.user.deptCode);
+                        sessionStorage.setItem("token",res.data);
                         sessionStorage.setItem("username",data.username);
-                        layer.msg('登录成功', function () {
+                        layer.msg('10.80.7.86', function () {
                             window.location = 'index.html';
                         });
                     }else{

@@ -86,6 +86,10 @@ public class InterfaceResult<T> implements Serializable {
         return new InterfaceResult<T>(false,description);
     }
 
+    public static <T> InterfaceResult<T> getError(String description,T data){
+        return new InterfaceResult<T>(false,description,data);
+    }
+
     public static <T> InterfaceResult<T> hasExist(Integer hasExist,String successMsg,String errorMsg, T data){
         if (hasExist > 0){
             return InterfaceResult.getSuccess(successMsg,data);

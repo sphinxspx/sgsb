@@ -17,21 +17,21 @@
 <body>
 <div class="layui-form layuimini-form">
     <div class="layui-form-item">
-        <label class="layui-form-label required">部门名称</label>
-        <div class="layui-input-block">
-            <input type="text" name="deptName" lay-verify="required" lay-reqtext="部门名称不能为空" placeholder="请输入部门名称" value="" class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item">
         <label class="layui-form-label required">用户名</label>
         <div class="layui-input-block">
             <input type="text" name="username" lay-verify="required" lay-reqtext="用户名不能为空" placeholder="请输入用户名" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label required">用户密码</label>
+        <label class="layui-form-label required">部门名称</label>
         <div class="layui-input-block">
-            <input type="text" name="password" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入用户密码" value="" class="layui-input">
+            <input type="text" name="deptName" lay-verify="required" lay-reqtext="部门名称不能为空" placeholder="请输入部门名称" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">新密码</label>
+        <div class="layui-input-block">
+            <input type="text" name="password" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入新密码" value="" class="layui-input">
         </div>
     </div>
 
@@ -52,18 +52,18 @@
         form.on('submit(saveBtn)', function (datas) {
             $.ajax({
                 type: "post",
-                url: "http://localhost:8181/sgsb/dept/add_dept_user",
+                url: "http://10.80.7.86:8181/sgsb/user-info/forget_password",
                 data:Object.assign({},datas.field,{token:sessionStorage.getItem('token')}),
                 dataType: "json",
                 success: function (res) {
                     layer.msg(res.msg);
                     if(res.success){
-                        setTimeout(() => {
-                            var iframeIndex = parent.layer.getFrameIndex(window.name);
-                            parent.layer.close(iframeIndex);
-                        }, 2000);
+                        // setTimeout(() => {
+                        //     var iframeIndex = parent.layer.getFrameIndex(window.name);
+                        //     parent.layer.close(iframeIndex);
+                        // }, 2000);
                         layer.msg(res.msg, function () {
-                            window.location = '/page/welcome-1.html';
+                            window.location = '/login.html';
                         });
                     }
                 }

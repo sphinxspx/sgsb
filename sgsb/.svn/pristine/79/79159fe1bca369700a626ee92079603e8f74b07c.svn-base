@@ -40,7 +40,7 @@
             table = layui.table;
         table.render({
             elem: '#currentTableId',
-            url: 'http://localhost:8181/sgsb/upload-record/list_upload_record_by_catalog_code',
+            url: 'http://10.80.7.86:8181/sgsb/upload-record/list_upload_record_by_catalog_code',
             request:{
                 pageName: 'pageIndex', //页码的参数名称，默认：page
                 limitName: 'pageSize', //每页数据量的参数名，默认：limit

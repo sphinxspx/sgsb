@@ -1,6 +1,7 @@
 package com.zjhc.sgsb.controller;
 
 
+import com.google.common.collect.Lists;
 import com.zjhc.sgsb.common.InterfaceResult;
 import com.zjhc.sgsb.entity.Dept;
 import com.zjhc.sgsb.entity.UserInfo;
@@ -66,7 +67,7 @@ public class DeptController extends BaseController {
 
     @ApiOperation(value="获取所有部门code-name")
     @RequestMapping(value = "list_dept")
-    public InterfaceResult<List<Dept>> listDept(String searchInfo){
-        return deptService.listDept(searchInfo);
+    public InterfaceResult<List<Dept>> listDept(String deptCode){
+        return deptService.listDept(deptCode);
     }
 }

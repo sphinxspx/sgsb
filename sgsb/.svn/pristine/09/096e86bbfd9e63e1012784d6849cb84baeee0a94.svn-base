@@ -86,8 +86,8 @@ public class ResourceCatalogServiceImpl extends ServiceImpl<ResourceCatalogMappe
         }
         String catalogCode = UUID.randomUUID().toString().replaceAll("-","");
         QueryWrapper<Dept> deptWrapper = new QueryWrapper<>();
-        deptWrapper.eq("dept_code",catalog.getDeptCode());
-        deptWrapper.eq("is_delete",1);
+        wrapper.eq("dept_code",catalog.getDeptCode());
+        wrapper.eq("is_delete",1);
         Dept dept = deptService.getOne(deptWrapper);
         catalog.setDeptName(dept.getDeptName());
         catalog.setCatalogCode(catalogCode);

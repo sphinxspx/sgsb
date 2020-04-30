@@ -129,7 +129,7 @@
                         if (valid) {
                             $.ajax({
                                 type: "post",
-                                url: "http://10.80.7.86:8181/sgsb/catalog-template/add_catalog_template_page?token="+sessionStorage.getItem('token'),
+                                url: "http://localhost:8181/sgsb/catalog-template/add_catalog_template_page?token="+sessionStorage.getItem('token'),
                                 data:JSON.stringify(Object.assign({},{catalogCode:list.catalogCode,colList:this.obj.jsonArray})),
                                 dataType: "json",
                                 contentType:"application/json",

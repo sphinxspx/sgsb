@@ -2,7 +2,6 @@ package com.zjhc.sgsb.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.google.common.collect.Maps;
 import com.zjhc.sgsb.common.InterfaceResult;
 import com.zjhc.sgsb.entity.UserInfo;
 import com.zjhc.sgsb.mapper.UserInfoMapper;
@@ -18,7 +17,6 @@ import org.springframework.util.Base64Utils;
 import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
-import java.util.Map;
 
 /**
  * <p>
@@ -37,7 +35,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     @Autowired
     private UserInfoMapper userInfoMapper;
 
-    public InterfaceResult<Map<String,Object>> login(UserInfo userInfo) {
+    public InterfaceResult<String> login(UserInfo userInfo) {
         if (userInfo == null || userInfo.getUsername() == null || userInfo.getPassword() == null) {
             return InterfaceResult.getError("登录信息不全");
         }
@@ -52,10 +50,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         }
         String jsonString = JSON.toJSONString(loginUser);
         String token = Base64Utils.encodeToString(jsonString.getBytes());
-        Map<String,Object> result = Maps.newHashMap();
-        result.put("token",token);
-        result.put("user",loginUser);
-        return InterfaceResult.getSuccess("登陆成功", result);
+        return InterfaceResult.getSuccess("登陆成功", token);
     }
 
     public InterfaceResult<String> forgetPassword(UserInfo userInfo) {
@@ -93,13 +88,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
             return InterfaceResult.getError("请先登录！");
         }
         String jsonStr = new String(Base64Utils.decode(token.replaceAll(" ","+").getBytes()));
-        UserInfo info = new UserInfo();
-        try {
-            info = JSON.parseObject(jsonStr, UserInfo.class);
-        }catch (Exception ex){
-            logger.info("authentication"+ex);
-            return InterfaceResult.getError("用户信息校验失败!");
-        }
+        UserInfo info = JSON.parseObject(jsonStr, UserInfo.class);
         if (info != null && info.getUsername() != null &&  info.getDeptCode() != null){
             QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
             wrapper.eq("username",info.getUsername());

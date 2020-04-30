@@ -4,8 +4,6 @@ import com.zjhc.sgsb.common.InterfaceResult;
 import com.zjhc.sgsb.entity.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
-import java.util.Map;
-
 /**
  * <p>
  *  服务类
@@ -16,7 +14,7 @@ import java.util.Map;
  */
 public interface IUserInfoService extends IService<UserInfo> {
 
-    InterfaceResult<Map<String,Object>> login(UserInfo userInfo);
+    InterfaceResult<String> login(UserInfo userInfo);
 
     InterfaceResult<String> forgetPassword(UserInfo userInfo);
 

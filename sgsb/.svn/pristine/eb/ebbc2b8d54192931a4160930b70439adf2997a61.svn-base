@@ -87,14 +87,10 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
         return InterfaceResult.getError("删除失败！");
     }
 
-    public InterfaceResult<List<Dept>> listDept(String deptCode){
-        QueryWrapper<UserInfo> infoWrapper = new QueryWrapper<>();
-        infoWrapper.eq("dept_code",deptCode);
-        infoWrapper.eq("is_delete",1);
-        UserInfo info = userInfoService.getOne(infoWrapper);
+    public InterfaceResult<List<Dept>> listDept(String searchInfo){
         QueryWrapper<Dept> wrapper = new QueryWrapper<>();
-        if (info.getIsSuperUser() == 0){//不是管理员,查询当前部门
-            wrapper.eq("dept_code",deptCode);
+        if (!StringUtils.isEmpty(searchInfo)){
+            wrapper.like("dept_name",searchInfo);
         }
         wrapper.select("dept_code","dept_name");
         wrapper.notIn("dept_code", Constant.SUPER_USER_DEPT_CODE);

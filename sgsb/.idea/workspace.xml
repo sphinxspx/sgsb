@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d5c73ff-3b08-4a45-90bb-951e01e8f8ea" name="Default" comment="">
+    <list default="true" id="0d5c73ff-3b08-4a45-90bb-951e01e8f8ea" name="Default" comment="非格式化文件部分及页面更新">
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles" afterDir="true" />
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_3_1.xml" afterDir="false" />
@@ -47,25 +47,21 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/server.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sgsb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sgsb.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/common/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/common/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/controller/ResourceCatalogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/controller/ResourceCatalogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/common/InterfaceResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/common/InterfaceResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/controller/DeptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/controller/DeptController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/controller/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/controller/UserInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/IResourceCatalogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/IResourceCatalogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/IDeptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/IDeptService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/IUserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/IUserInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/CatalogTemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/CatalogTemplateServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/DeptServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/DeptServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/ResourceCatalogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/ResourceCatalogServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/UserInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/service/impl/UserInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/util/ExcelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zjhc/sgsb/util/ExcelUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/addDept.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/addDept.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/addTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/addTemplate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/forgetPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/forgetPassword.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/histy.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/histy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/user-password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/user-setting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/resetPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/table/resetPassword.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/resources/page/welcome-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resources/page/welcome-1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,19 +129,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sgsb-page" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/resources/page/table" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\svnFile\sgsb\src\main\resources\static\resources\page\table" />
-      <recent name="F:\svnFile\sgsb\src\main\resources\static\resources" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\svnFile\sgsb\src\main\resources\static\resources\page" />
       <recent name="F:\svnFile\sgsb\src\main\resources\static\download" />
-      <recent name="F:\svnFile\sgsb\src\main\resources\static" />
-      <recent name="F:\svnFile\sgsb\src\main\java\com\zjhc\sgsb\temp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.zjhc.sgsb.util" />
@@ -154,9 +147,12 @@
       <recent name="com.zjhc.sgsb.common" />
       <recent name="com.zjhc.sgsb.config" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\svnFile\sgsb\src\main\resources\static\resources\page" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\svnFile\sgsb\src\main\resources\static\resources\page\table" />
+      <recent name="F:\svnFile\sgsb\src\main\resources\static\resources" />
       <recent name="F:\svnFile\sgsb\src\main\resources\static\download" />
+      <recent name="F:\svnFile\sgsb\src\main\resources\static" />
+      <recent name="F:\svnFile\sgsb\src\main\java\com\zjhc\sgsb\temp" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SgsbApplication">
@@ -496,7 +492,8 @@
       <workItem from="1587862324227" duration="16349000" />
       <workItem from="1587947885070" duration="21488000" />
       <workItem from="1588035088215" duration="22212000" />
-      <workItem from="1588121449519" duration="16003000" />
+      <workItem from="1588121449519" duration="22117000" />
+      <workItem from="1588208523587" duration="7204000" />
     </task>
     <task id="LOCAL-00001" summary="用户 部门 资源目录 增删查">
       <created>1587374025045</created>
@@ -631,7 +628,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588063559564</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="非格式化文件部分及页面更新">
+      <created>1588150699009</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1588150699009</updated>
+    </task>
+    <task id="LOCAL-00021" summary="非格式化文件部分及页面更新">
+      <created>1588151491722</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1588151491722</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +666,8 @@
     <MESSAGE value="字段模板修改" />
     <MESSAGE value="页面修改" />
     <MESSAGE value="无用文件删除" />
-    <option name="LAST_COMMIT_MESSAGE" value="无用文件删除" />
+    <MESSAGE value="非格式化文件部分及页面更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="非格式化文件部分及页面更新" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="21" key="#Inspections" timestamp="1587347233204">
@@ -674,78 +686,78 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="109" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1588056562347" />
-    <state x="162" y="0" key="CommitChangelistDialog2" timestamp="1588063558263">
+    <state x="162" y="0" key="CommitChangelistDialog2" timestamp="1588151505280">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="162" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588063558263" />
-    <state x="466" y="113" key="FileChooserDialogImpl" timestamp="1588121516010">
+    <state x="162" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588151505280" />
+    <state x="466" y="113" key="FileChooserDialogImpl" timestamp="1588208685764">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="466" y="113" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588121516010" />
-    <state width="1322" height="64" key="GridCell.Tab.0.bottom" timestamp="1588144627411">
+    <state x="466" y="113" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588208685764" />
+    <state width="1322" height="96" key="GridCell.Tab.0.bottom" timestamp="1588216362435">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588144627411" />
-    <state width="1322" height="64" key="GridCell.Tab.0.center" timestamp="1588144627411">
+    <state width="1322" height="96" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588216362435" />
+    <state width="1322" height="96" key="GridCell.Tab.0.center" timestamp="1588216362435">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588144627411" />
-    <state width="1322" height="64" key="GridCell.Tab.0.left" timestamp="1588144627411">
+    <state width="1322" height="96" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588216362435" />
+    <state width="1322" height="96" key="GridCell.Tab.0.left" timestamp="1588216362435">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588144627411" />
-    <state width="1322" height="64" key="GridCell.Tab.0.right" timestamp="1588144627411">
+    <state width="1322" height="96" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588216362435" />
+    <state width="1322" height="96" key="GridCell.Tab.0.right" timestamp="1588216362435">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588144627411" />
-    <state width="1322" height="64" key="GridCell.Tab.1.bottom" timestamp="1588144627411">
+    <state width="1322" height="96" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588216362435" />
+    <state width="1322" height="96" key="GridCell.Tab.1.bottom" timestamp="1588216362436">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588144627411" />
-    <state width="1322" height="64" key="GridCell.Tab.1.center" timestamp="1588144627411">
+    <state width="1322" height="96" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588216362436" />
+    <state width="1322" height="96" key="GridCell.Tab.1.center" timestamp="1588216362435">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1588144627411" />
-    <state width="1322" height="64" key="GridCell.Tab.1.left" timestamp="1588144627411">
+    <state width="1322" height="96" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1588216362435" />
+    <state width="1322" height="96" key="GridCell.Tab.1.left" timestamp="1588216362435">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1588144627411" />
-    <state width="1322" height="64" key="GridCell.Tab.1.right" timestamp="1588144627411">
+    <state width="1322" height="96" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1588216362435" />
+    <state width="1322" height="96" key="GridCell.Tab.1.right" timestamp="1588216362435">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1588144627411" />
-    <state width="1322" height="64" key="GridCell.Tab.2.bottom" timestamp="1588144627412">
+    <state width="1322" height="96" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1588216362435" />
+    <state width="1322" height="96" key="GridCell.Tab.2.bottom" timestamp="1588216362436">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588144627412" />
-    <state width="1322" height="64" key="GridCell.Tab.2.center" timestamp="1588144627412">
+    <state width="1322" height="96" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588216362436" />
+    <state width="1322" height="96" key="GridCell.Tab.2.center" timestamp="1588216362436">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1588144627412" />
-    <state width="1322" height="64" key="GridCell.Tab.2.left" timestamp="1588144627411">
+    <state width="1322" height="96" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1588216362436" />
+    <state width="1322" height="96" key="GridCell.Tab.2.left" timestamp="1588216362436">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1588144627411" />
-    <state width="1322" height="64" key="GridCell.Tab.2.right" timestamp="1588144627412">
+    <state width="1322" height="96" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1588216362436" />
+    <state width="1322" height="96" key="GridCell.Tab.2.right" timestamp="1588216362436">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="64" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1588144627412" />
+    <state width="1322" height="96" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1588216362436" />
     <state x="215" y="0" key="SettingsEditor" timestamp="1588124426884">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="215" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1588124426883" />
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1588121446743">
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1588208543635">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588121446743" />
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588208543635" />
     <state x="339" y="231" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogintegrate" timestamp="1587346391562">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="231" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogintegrate/0.0.1366.728@0.0.1366.728" timestamp="1587346391562" />
-    <state x="496" y="208" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588127942800">
+    <state x="496" y="208" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588150599738">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="496" y="208" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1588127942800" />
+    <state x="496" y="208" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1588150599738" />
     <state x="413" y="127" key="extract.method.dialog" timestamp="1588045253501">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

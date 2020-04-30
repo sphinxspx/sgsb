@@ -21,7 +21,7 @@ public interface IDeptService extends IService<Dept> {
 
     InterfaceResult<String> deleteDept(Dept dept);
 
-    InterfaceResult<List<Dept>> listDept(String searchInfo);
+    InterfaceResult<List<Dept>> listDept(String deptCode);
 
 
 
